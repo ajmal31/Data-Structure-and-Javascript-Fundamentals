@@ -53,4 +53,3 @@ var halvesAreAlike = function(s) {
 
 
 };
-console.log('helo')
