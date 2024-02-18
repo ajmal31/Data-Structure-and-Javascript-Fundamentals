@@ -98,8 +98,23 @@ class singleLinkedlist {
             temp = this.head
             this.head = temp2
         }
-        this.head=temp
+        this.head = temp
 
+
+    }
+    sort() {
+
+        let temp = this.head
+        while (temp?.next!==null) {
+            if (temp?.val < temp.next.val) {
+
+                let temp2 = temp?.next.next
+                temp?.next.next = temp
+                temp?.next = temp2
+                temp = temp.next
+            }
+
+        }
 
     }
     //printing all values
@@ -132,8 +147,8 @@ list.push(40)
 list.push(50)
 list.push(60)
 list.print()
-console.log("after reverse")
-list.reverse()
+console.log("after sorting")
+list.sort()
 list.print()
 
 
