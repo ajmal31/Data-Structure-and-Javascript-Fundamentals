@@ -52,16 +52,55 @@ class BinarySearchTree {
         }
 
     }
+    preOrder(root){
+        if(root){
+            console.log(root.value)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left)
+            console.log(root.value)
+            this.inOrder(root.right)
+        }
+    }
+    postOrder(root){
+        if(root){
+            this.postOrder(root.left)
+            this.postOrder(root.right)
+            console.log(root.value)
+        }
+    }
+    minimumValue(root){
+
+        if(root.left===null)return root.value
+        else return this.minimumValue(root.left)
+    }
+    maximumValue(root){
+        if(root.right===null)return root.value
+        else return this.maximumValue(root.right)
+    }
 
 }
 
 const obj = new BinarySearchTree()
 let a = obj.isEmpty()
 console.log("Is it tree is empty", a)
-obj.insert(10)
-obj.insert(5)
-obj.insert(15)
-console.log(obj.search(obj.root, 10))
-console.log(obj.search(obj.root, 5))
-console.log(obj.search(obj.root, 15))
-console.log(obj.search(obj.root, 30))
+obj.insert(50)
+obj.insert(48)
+obj.insert(52)
+obj.insert(45)
+obj.insert(49)
+obj.insert(55)
+obj.insert(51)
+console.log("pre order Traversal ")
+obj.preOrder(obj.root)
+console.log("in Order Traversal")
+obj.inOrder(obj.root)
+console.log("post order Traversal")
+obj.postOrder(obj.root)
+console.log("Minimum value of the BST:- ",obj.minimumValue(obj.root))
+console.log("Maximum value of the BST:- ",obj.maximumValue(obj.root))
+
