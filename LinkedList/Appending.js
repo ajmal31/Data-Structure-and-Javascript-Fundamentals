@@ -87,36 +87,22 @@ class singleLinkedlist {
             }
         }
     }
-    reverse() {
+    // reverse() {
 
-        let temp2 = null
-        let temp = null
+    //     let temp2 = null
+    //     let temp = null
 
-        while (this.head !== null) {
-            temp2 = this.head.next
-            this.head.next = temp
-            temp = this.head
-            this.head = temp2
-        }
-        this.head = temp
+    //     while (this.head !== null) {
+    //         temp2 = this.head.next
+    //         this.head.next = temp
+    //         temp = this.head
+    //         this.head = temp2
+    //     }
+    //     this.head = temp
 
 
-    }
-    sort() {
-
-        let temp = this.head
-        while (temp?.next!==null) {
-            if (temp?.val < temp.next.val) {
-
-                let temp2 = temp?.next.next
-                temp?.next.next = temp
-                temp?.next = temp2
-                temp = temp.next
-            }
-
-        }
-
-    }
+    // }
+    
     //printing all values
     print() {
 
@@ -126,6 +112,21 @@ class singleLinkedlist {
             if (!temp.next) break
             temp = temp.next
         }
+
+    }
+    reverse(){
+
+        let temp1=null
+        let temp2=null
+        while(this.head!==null)
+        {
+            temp1=this.head.next
+            this.head.next=temp2
+            temp2=this.head
+            this.head=temp1
+        }
+        this.head=temp2
+
 
     }
 }
@@ -147,8 +148,8 @@ list.push(40)
 list.push(50)
 list.push(60)
 list.print()
-console.log("after sorting")
-list.sort()
+list.reverse()
+console.log("after reversing")
 list.print()
 
 
