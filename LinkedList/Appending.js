@@ -102,33 +102,56 @@ class singleLinkedlist {
 
 
     // }
-    
+
     //printing all values
     print() {
 
         let temp = this.head
-        while (true) {
+        while (temp) {
             console.log("nodes", temp.val)
-            if (!temp.next) break
             temp = temp.next
         }
 
     }
-    reverse(){
+    reverse() {
 
-        let temp1=null
-        let temp2=null
-        while(this.head!==null)
-        {
-            temp1=this.head.next
-            this.head.next=temp2
-            temp2=this.head
-            this.head=temp1
+        let temp1 = null
+        let temp2 = null
+        while (this.head !== null) {
+            temp1 = this.head.next
+            this.head.next = temp2
+            temp2 = this.head
+            this.head = temp1
         }
-        this.head=temp2
+        this.head = temp2
 
 
     }
+    bubbleSort(){
+
+        let swapped
+        let next
+        let curr
+
+       do{
+          
+           swapped=false
+           curr=this.head
+           while(curr&&curr.next){
+
+              next=curr.next
+              if(curr.val>next.val){
+
+                let temp=curr.val
+                curr.val=next.val
+                next.val=temp
+                swapped=true
+              }
+              curr=curr.next
+           }
+       }while(swapped)
+    }
+
 }
 
 const list = new singleLinkedlist()
@@ -141,15 +164,17 @@ const list = new singleLinkedlist()
 // list.unshift(30)
 // list.unshift(20)
 // list.unshift(10)
-list.push(10)
-list.push(20)
-list.push(30)
-list.push(40)
-list.push(50)
-list.push(60)
+list.push(75)
+list.push(13)
+list.push(28)
+list.push(102)
+list.push(54)
+list.push(46)
+console.log("Before sorting")
 list.print()
-list.reverse()
-console.log("after reversing")
+// list.reverse()
+list.bubbleSort()
+console.log("after sorting")
 list.print()
 
 
