@@ -17,6 +17,7 @@ class singleLinkedlist {
     push(val) {
 
         const newNode = new Node(val)
+        console.log("newnode",newNode)
         if (!this.head) {
             this.head = newNode
             this.tail = this.head

@@ -62,20 +62,21 @@ class Bst{
     BFS(){
     
         let queue=[]
-        let visited=[]
-        let current=this.root
-        queue.push(current)
+        let result=[]
+
+        let currentNode=this.root
+        queue.push(currentNode)
+
         while(queue.length)
         {
-            current=queue.shift()
-            visited.push(current.val)
+            currentNode=queue.shift()
+            result.push(currentNode.val)
 
-            current.left&&queue.push(current.left)
-            current.right&&queue.push(current.right)
+            currentNode.left&&queue.push(currentNode.left)
+            currentNode.right&&queue.push(currentNode.right)
         }
-
-        console.log("visted ",visited)
-        return 
+        console.log("tree result")
+        console.log(result)
         
     }
 }

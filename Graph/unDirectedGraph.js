@@ -34,6 +34,7 @@ class Graph{
     {
         for(const key of this.adjacencyList[vertex])
         {
+            console.log("key",key)
             this.removeEdge(key,vertex)
         }
         delete this.adjacencyList[vertex]
@@ -45,6 +46,35 @@ class Graph{
             console.log(vertex,"->",...[...this.adjacencyList[vertex]])
         }
     }
+
+    bfs(start){
+
+        let queue=[start]
+
+        let result=[]
+        let visited={}
+
+        visited[start]=true
+
+        while(queue.length)
+        {
+            let currentVertex=queue.shift()
+
+            result.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach((val)=>{
+
+                if(!visited[val])
+                {
+                    visited[val]=true
+                    queue.push(val)
+                }
+            })
+        }
+
+        console.log("result")
+        console.log(result)
+
+    }
     
 
 }
@@ -53,11 +83,17 @@ const graph=new Graph()
 
 graph.addVertex("A")
 graph.addVertex("B")
-graph.addVertex("C")
+graph.addVertex("D")
 
 graph.addEdges("A","B")
-graph.addEdges("B","C")
-graph.display()
-graph.removeVertex("A")
+graph.addEdges("A","Z")
+graph.addEdges("A","X")
+graph.addEdges("A","D")
+graph.addEdges("A","J")
+graph.addEdges("A","Q")
+graph.addEdges("Q","L")
+graph.display
+// graph.removeVertex("A")
 console.log("after edge deletion")
 graph.display()
+graph.bfs("A")
