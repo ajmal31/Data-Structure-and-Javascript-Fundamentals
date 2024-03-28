@@ -17,7 +17,6 @@ class singleLinkedlist {
     push(val) {
 
         const newNode = new Node(val)
-        console.log("newnode",newNode)
         if (!this.head) {
             this.head = newNode
             this.tail = this.head
@@ -88,21 +87,22 @@ class singleLinkedlist {
             }
         }
     }
-    // reverse() {
-
-    //     let temp2 = null
-    //     let temp = null
-
-    //     while (this.head !== null) {
-    //         temp2 = this.head.next
-    //         this.head.next = temp
-    //         temp = this.head
-    //         this.head = temp2
-    //     }
-    //     this.head = temp
-
-
-    // }
+    printMiddle()
+    {
+      let middle=Math.ceil(this.length/2)
+      console.log("middle",middle)
+      let curr=this.head
+      let count=0
+      while(curr)
+      {
+          count++
+          if(count===middle){
+            console.log("Middle elements",curr.val)
+            break
+          }
+          curr=curr.next
+      }
+    }
 
     //printing all values
     print() {
@@ -114,68 +114,84 @@ class singleLinkedlist {
         }
 
     }
-    reverse() {
+    // bubbleSort(){
 
-        let temp1 = null
-        let temp2 = null
-        while (this.head !== null) {
-            temp1 = this.head.next
-            this.head.next = temp2
-            temp2 = this.head
-            this.head = temp1
-        }
-        this.head = temp2
+    //     let swapped
+    //     let next
+    //     let curr
 
-
-    }
-    bubbleSort(){
-
-        let swapped
-        let next
-        let curr
-
-       do{
+    //    do{
           
-           swapped=false
-           curr=this.head
-           while(curr&&curr.next){
+    //        swapped=false
+    //        curr=this.head
+    //        while(curr&&curr.next){
 
-              next=curr.next
-              if(curr.val>next.val){
+    //           next=curr.next
+    //           if(curr.val>next.val){
 
-                let temp=curr.val
-                curr.val=next.val
-                next.val=temp
+    //             let temp=curr.val
+    //             curr.val=next.val
+    //             next.val=temp
+    //             swapped=true
+    //           }
+    //           curr=curr.next
+    //        }
+    //    }while(swapped)
+    // }
+    reverse()
+    {
+        let next=null
+        let prev=null
+        while(this.head)
+        {
+            next=this.head.next
+            this.head.next=prev
+            prev=this.head
+            this.head=next
+        }
+        this.head=prev
+        return this.head
+    }
+    bubbleSort()
+    {
+       let swapped
+       let next
+       do{
+         
+        swapped=false
+        let curr=this.head
+        
+        while(curr.next)
+        {
+            next=curr.next
+            if(curr.val>next.val)
+            {
+                [curr.val,next.val]=[next.val,curr.val]
                 swapped=true
-              }
-              curr=curr.next
-           }
+            }
+            curr=curr.next
+        }
+
        }while(swapped)
+
     }
 
 }
 
 const list = new singleLinkedlist()
-// list.push(10)
-// list.push(20)
-// list.push(30)
-// list.push(40)
-// list.push(50)
-// list.unshift(40)
-// list.unshift(30)
-// list.unshift(20)
-// list.unshift(10)
 list.push(75)
 list.push(13)
+list.push(303)
 list.push(28)
 list.push(102)
 list.push(54)
-list.push(46)
-console.log("Before sorting")
+// list.push(46)
+// console.log("Before sorting")
 list.print()
 // list.reverse()
 list.bubbleSort()
 console.log("after sorting")
+list.printMiddle()
 list.print()
 
 
