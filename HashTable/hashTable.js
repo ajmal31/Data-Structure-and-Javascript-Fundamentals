@@ -35,7 +35,6 @@ class HashTable{
     get(key){
         const index=this.hash(key)
         const bucket=this.table[index]
-        console.log("table",this.table)
         if(!bucket)console.log("values is not exist")
         else{
 
