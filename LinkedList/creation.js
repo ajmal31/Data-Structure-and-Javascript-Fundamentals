@@ -52,6 +52,20 @@ class LinkedList {
         }
 
     }
+    reverse(){
+
+        let next=null
+        let prev=null
+        
+        while(this.head)
+        {
+            next=this.head.next
+            this.head.next=prev
+            prev=this.head
+            this.head=next
+        }
+        this.head=prev
+    }
     search(val) {
 
         let temp = this.head
@@ -92,4 +106,6 @@ obj.print()
 obj.delete(40)
 console.log("after deletion")
 obj.print()
-obj.search(50)
+obj.reverse()
+console.log("after reverse\n---------------")
+obj.print()
