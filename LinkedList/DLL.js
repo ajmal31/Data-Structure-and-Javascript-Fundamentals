@@ -49,6 +49,22 @@ class DDL{
             temp=temp.prev
         }
     }
+    reverse(){
+          
+        let curr=this.head
+        let prev=null
+        while(curr!==null){
+
+           prev=curr.prev
+           curr.prev=curr.next
+           curr.next=prev
+           
+           curr=curr.prev
+        }
+       
+        this.head=prev.prev
+        console.log("DDL Reversed")
+    }
 }
 
 const obj=new DDL()
@@ -56,8 +72,16 @@ obj.append(10)
 obj.append(20)
 obj.append(30)
 obj.append(40)
-obj.append(50)
-obj.append(60)
+console.log("forward")
 obj.forward()
 console.log("------------")
+console.log("backword")
+obj.backward()
+
+obj.reverse()
+
+console.log("forward")
+obj.forward()
+console.log("------------")
+console.log("backword")
 obj.backward()
