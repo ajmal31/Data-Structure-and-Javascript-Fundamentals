@@ -53,61 +53,70 @@
 // console.log(map)
 
 
-class Node{
-    constructor(val)
-    {
-        this.val=val
-        this.next=null
-    }
+// class Node{
+//     constructor(val)
+//     {
+//         this.val=val
+//         this.next=null
+//     }
 
-}
+// }
 
-class Queue{
-    constructor()
-    {
-        this.start=null
-         this.peek=null
-    }
+// class Queue{
+//     constructor()
+//     {
+//         this.start=null
+//          this.peek=null
+//     }
  
     
-    enqueue(val)
-    {
-        let newNode=new Node(val)
-        if(!this.start)
-        {
-            this.start=newNode
-            this.peek=newNode
-        }else{
+//     enqueue(val)
+//     {
+//         let newNode=new Node(val)
+//         if(!this.start)
+//         {
+//             this.start=newNode
+//             this.peek=newNode
+//         }else{
 
-            this.peek.next=newNode
-            this.peek=newNode
-        }
+//             this.peek.next=newNode
+//             this.peek=newNode
+//         }
 
-    }
-    dequeue()
-    {
-        let val=this.start.val
-        this.start=this.start.next
-        return val
-    }
-    display()
-    {
-        let curr=this.start
+//     }
+//     dequeue()
+//     {
+//         let val=this.start.val
+//         this.start=this.start.next
+//         return val
+//     }
+//     display()
+//     {
+//         let curr=this.start
 
-        while(curr)
-        {
-            console.log(curr.val)
-            curr=curr.next
-        }
-    }
-}
+//         while(curr)
+//         {
+//             console.log(curr.val)
+//             curr=curr.next
+//         }
+//     }
+// }
 
-let obj=new Queue()
-obj.enqueue(10)
-obj.enqueue(20)
-obj.enqueue(30)
-obj.enqueue(40)
-obj.enqueue(50)
-obj.display()
-console.log("deleted value",obj.dequeue())
+// let obj=new Queue()
+// obj.enqueue(10)
+// obj.enqueue(20)
+// obj.enqueue(30)
+// obj.enqueue(40)
+// obj.enqueue(50)
+// obj.display()
+// console.log("deleted value",obj.dequeue())
+
+
+
+let str="helo ajmEl"
+
+str[1]="k"
+console.log(str.replaceAll('e', 'z'));
+console.log(str);
+// console.log(k);
 

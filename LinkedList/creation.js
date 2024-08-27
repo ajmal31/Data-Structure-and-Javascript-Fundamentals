@@ -86,13 +86,13 @@ class LinkedList {
         console.log("sorted { bubble } ")
 
     }
-    bubbleSort(){
+    bubbleSort(head){
 
         let curr=null
         let next=null
         let swapped=null
         do{
-            curr=this.head
+            curr=head
             swapped=false
 
             while(curr&&curr.next){
@@ -132,24 +132,98 @@ class LinkedList {
             temp = temp.next
         }
     }
+    //Remove duplicates from sorted list
+    removeDuplicates(){
+
+        let curr=this.head
+
+        while(curr){
+
+            let temp=curr
+            if(temp.val===temp.next.val){
+
+                temp.next=temp.next.next
+            }
+            curr=curr.next
+        }
+    }
+
+    //Merge Two sorted List
+    mergeTwoSortedLists(list2){
+
+        this.tail.next=list2.head
+
+        this.tail=list2.tail
+
+    }
+
+    isPalindrome(){
+
+        let arr=[]
+        let curr=this.head
+        while(curr){
+
+            arr.push(curr.val)
+            curr=curr.next
+        }
+
+        let str=arr.join("")
+        let num=Number(str)
+        let temp=num
+        let reversNum=0
+        while(temp>0){
+
+            let lastNum=temp%10
+            reversNum=reversNum*10+lastNum
+            temp=Math.floor(temp/10)
+        }
+        return num===reversNum
+    }
 }
 
 
 
 
 const obj = new LinkedList()
+const obj2=new LinkedList()
 
-obj.append(20)
-obj.append(30)
-obj.append(40)
-obj.append(10)
-obj.print()
+// obj.append(20)
+// obj.append(30)
+// obj.append(40)
+// obj.append(20)
+// obj.append(40)
+// obj.append(30)
+// obj.append(10)
 // obj.delete(40)
 // console.log("after deletion")
 //obj.print()
 //obj.reverse()
 //console.log("after reverse\n---------------")
 //obj.print()
-obj.bubbleSort()
-console.log("after sorting")
-obj.print()
+// obj.bubbleSort(obj.head)
+// console.log("after sorting")
+// obj.print()
+// obj.removeDuplicates()
+// console.log("after removing duplicates")
+// obj.print()
+// obj2.append(2)
+// obj2.append(3)
+// obj2.append(4)
+// obj2.append(2)
+// obj2.append(4)
+// obj2.append(3)
+// obj2.append(1)
+
+// obj2.bubbleSort(obj2.head)
+// console.log("after sorting")
+// obj2.print()
+
+// obj.mergeTwoSortedLists(obj2)
+// obj.bubbleSort(obj.head)
+// obj.print()
+obj.append(1)
+obj.append(2)
+obj.append(3)
+
+let k=obj.isPalindrome()
+console.log("Is palindrome",k)
